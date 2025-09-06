@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 12345
+  h2:
+    console:
+      enabled: true  # Habilita la consola web de H2
+      path: /h2-console  # Ruta de la consola de H2
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect  # Dialecto de H2 para Hibernate
+    hibernate:
+      ddl-auto: update  # Puede ser: create, update, validate, none
+    show-sql: true  # Muestra las consultas SQL generadas por Hibernate
+    properties:
+      hibernate:
+        format_sql: true  # Formatea las consultas SQL generadas por Hibernate
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: debug  # Registra las consultas SQL de Hibernate
+          type: trace  # También logea las ejecuciones de tipo
